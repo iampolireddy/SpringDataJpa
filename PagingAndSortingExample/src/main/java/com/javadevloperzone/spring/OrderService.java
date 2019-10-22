@@ -28,7 +28,7 @@ public class OrderService {
 	public List<OrderDo> getAllOrders() {
 
 		List<OrderDo> orderList = new ArrayList<>();
-		Iterable<OrderDo> orderIterator = orderRepository.findAll(Sort.by("orderedItem").ascending());
+		Iterable<OrderDo> orderIterator = orderRepository.findAll(Sort.by("orderAt").descending());
 		for (OrderDo order : orderIterator) {
 			orderList.add(order);
 		}
@@ -53,7 +53,7 @@ public class OrderService {
 		}
 		
 		orderUIDto.setNumberOfTotalPages(page.getTotalPages());
-		orderUIDto.setNumberOfElements(page.getNumberOfElements());
+		orderUIDto.setNumberOfElements(page.getTotalElements());
 		orderUIDto.setIsFirst(page.isFirst());
 		orderUIDto.setIsLast(page.isLast());
 		
@@ -67,7 +67,7 @@ public class OrderService {
 
 		List<OrderDo> orderList = new ArrayList<>();
 
-		Sort sort = Sort.by("orderAt").ascending();
+		Sort sort = Sort.by("orderAt").descending();
 		Pageable paging = PageRequest.of(0, 3, sort);
 		Iterable<OrderDo> orderIterator = orderRepository.findAll(paging);
 

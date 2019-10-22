@@ -4,7 +4,7 @@ import java.util.List;
 
 public class OrderUIDto {
 
-	private int numberOfElements;
+	private Long numberOfElements;
 	private int numberOfTotalPages;
 	private List<OrderDo> orderDoList;
 	private Boolean isFirst;
@@ -12,11 +12,11 @@ public class OrderUIDto {
 	
 	
 
-	public int getNumberOfElements() {
+	public Long getNumberOfElements() {
 		return numberOfElements;
 	}
 
-	public void setNumberOfElements(int numberOfElements) {
+	public void setNumberOfElements(Long numberOfElements) {
 		this.numberOfElements = numberOfElements;
 	}
 
